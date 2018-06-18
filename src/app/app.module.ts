@@ -16,8 +16,10 @@ import { ConfigService } from './services/config.service';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffect } from './store/effects/login.effect';
 import { MoviesEffect } from './store/effects/movies.effect';
-import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatDividerModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatCardModule,
+   MatButtonModule, MatDividerModule, MatMenuModule, MatIconModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MovieComponent } from './components/movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavigationComponent,
     MovieListComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     AuthenticationService,

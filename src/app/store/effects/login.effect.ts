@@ -29,7 +29,6 @@ export class LoginEffect {
             switchMap(user => {
                 return this.auth.register(user)
                     .pipe(map(fetchedUser => {
-                        console.log(fetchedUser);
                         return new actions.RegistrationSuccess(user);
                     }
                     ),
@@ -56,7 +55,7 @@ export class LoginEffect {
                             return new actions.LoginSuccess(find);
                         }
                         alert('Invalid username or password');
-                        return [];
+                        return new actions.LoginFail();
                     }
                     ),
                         catchError(() => {
@@ -66,6 +65,7 @@ export class LoginEffect {
                     );
             })
         );
+
 
 
 }

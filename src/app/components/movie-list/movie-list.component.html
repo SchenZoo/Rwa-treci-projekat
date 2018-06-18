@@ -1,3 +1,15 @@
-<p>
-  movie-list works!
-</p>
+<mat-card class="card" *ngFor="let movie of movies;let i = index">
+    <div class="slika">
+        <img [src]="movie.Poster" />
+    </div>
+    <input type="file" (change)="onFileChanged($event,i)" id="fajl" [hidden]='true' />
+    <label for="fajl" class="mat-raised-button">Upload photo</label>
+    <br>
+    <label *ngFor="let i of props" >{{i}}
+    <mat-form-field  class="block">
+        <input matInput [(ngModel)]="movie[i]">
+    </mat-form-field>
+    </label>
+    <button mat-raised-button (click)='submitChange(movie)'>Change information</button>
+    <button mat-raised-button (click)='delete(movie.id)'>Delete</button>
+</mat-card>

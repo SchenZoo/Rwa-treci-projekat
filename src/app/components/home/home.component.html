@@ -1,15 +1,15 @@
 <mat-card class="card" *ngFor="let movie of movies;let i = index">
     <div class="slika">
-        <img [src]="movie.Poster" />
+        <a (click)="goTo(movie.id)">
+            <img [src]="movie.Poster" />
+        </a>
     </div>
-    <input type="file" (change)="onFileChanged($event,i)" id="fajl" [hidden]='true' />
-    <label for="fajl" class="mat-raised-button">Upload photo</label>
+    <button class="my-2 my-sm-0" mat-button type="button" (click)='addToFavourites(movie)'>Add to favourites</button>
     <br>
-    <label *ngFor="let i of props" >{{i}}
-    <mat-form-field  class="block">
-        <input matInput [(ngModel)]="movie[i]">
-    </mat-form-field>
-    </label>
-    <button mat-raised-button (click)='submitChange(movie)'>Change information</button>
-    <button mat-raised-button (click)='delete(movie.id)'>Delete</button>
+    <div>
+        <label *ngFor="let i of props">
+            <p>
+                <font color='brown'>{{i}}</font>: {{movie[i]}}</p>
+        </label>
+    </div>
 </mat-card>

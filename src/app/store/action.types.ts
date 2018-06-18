@@ -2,6 +2,7 @@
 
 export const loginAttempt = 'loginAttempt';
 export const loginSuccess = 'loginSuccess';
+export const loginFail = 'loginFail';
 
 export const registrationAttempt = 'registrationAttempt';
 export const registrationSuccess = 'registrationSuccess';

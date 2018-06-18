@@ -1,6 +1,28 @@
-<label>Username</label>
-<input type="text" [(ngModel)]='username' />
-<label>Password</label>
-<input type="password" [(ngModel)]='password' />
-<button type="button" (click)='login()'>Login</button>
-<button type="button" (click)='register()'>Register</button>
+<div class="center bord">
+    <div class='row'>
+    <div class="modal-header center">
+        <h4 class="modal-title">Log in</h4>
+    </div>
+    </div>
+    <form (ngSubmit)="login()" class='form center'>
+        <div class="modal-body">
+            <div class="row">
+                <mat-form-field class="center">
+                    <input [(ngModel)]="username" name='username' autocomplete="off" type="text" matInput placeholder="Username" autofocus>
+                </mat-form-field>
+
+            </div>
+            <div class="row">
+                <mat-form-field class="center">
+                    <input [(ngModel)]="password" name='password' autocomplete="off" type='password' matInput placeholder="Password">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="my-2 my-sm-0" mat-button>
+                Log in
+            </button>
+            <button class="my-2 my-sm-0" mat-button type="button" (click)='register()'>Register</button>
+        </div>
+    </form>
+</div>

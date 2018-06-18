@@ -15,7 +15,10 @@ export class LoginSuccess implements Action {
     constructor(public user: User) {
     }
 }
-
+export class LoginFail implements Action {
+    type = actionTypes.loginFail;
+    constructor() { }
+}
 
 export class RegistrationAttempt implements Action {
     type = actionTypes.registrationAttempt;
@@ -36,7 +39,7 @@ export class Logout implements Action {
 
 
 export type UserActions
-    = RegistrationSuccess | Logout | LoginSuccess;
+    = RegistrationSuccess | Logout | LoginSuccess | LoginFail;
 
 
 

@@ -1,0 +1,23 @@
+<div *ngIf="id">
+  <div class="max-width-1024">
+    <div class="embed-responsive embed-responsive-16by9" id="player">
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!id">
+    <mat-card class="card">
+        <div class="slika">
+            <img [src]="movie.Poster" />
+        </div>
+        <input type="file" (change)="onFileChanged($event)" id="fajl" [hidden]='true' />
+        <label for="fajl" class="mat-raised-button">Upload photo</label>
+        <br>
+        <label *ngFor="let i of props" >{{i}}
+        <mat-form-field  class="block">
+            <input matInput [(ngModel)]="movie[i]" name="{{i}}" required>
+        </mat-form-field>
+        </label>
+        <button mat-raised-button (click)='add(movie)'>Add</button>
+    </mat-card>
+</div>

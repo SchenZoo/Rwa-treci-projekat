@@ -4,23 +4,38 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { LoginComponent } from './components/login/login.component';
+import { LogGuardService } from './services/log-guard.service';
+import { MovieComponent } from './components/movie/movie.component';
 
 const routes: Routes = [
   {
     path: 'home',
-    component:  HomeComponent
+    component:  HomeComponent,
+    canActivate: [LogGuardService]
   },
   {
     path: 'movieList',
-    component: MovieListComponent
+    component: MovieListComponent,
+    canActivate: [LogGuardService]
+  },
+  {
+    path: 'movie/:id',
+    component: MovieComponent,
+    canActivate: [LogGuardService]
+  },
+  {
+    path: 'movie',
+    component: MovieComponent,
+    canActivate: [LogGuardService]
   },
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: ''
   }
 
 ];
@@ -30,5 +45,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
+  providers: [LogGuardService]
 })
 export class AppRoutingModuleModule { }

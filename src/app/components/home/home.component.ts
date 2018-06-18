@@ -30,23 +30,10 @@ export class HomeComponent implements OnInit {
     }
     );
   }
-
+  goTo(id) {
+    this.router.navigate([`movie/${id}`]);
+  }
   ngOnInit() {
-  }
-  submitChange(movie) {
-    this.store$.dispatch(new EditGlobalFilm(movie));
-  }
-  delete(id) {
-    this.store$.dispatch(new DeleteGlobalFilm(id));
-  }
-  onFileChanged(event, index) {
-    if (event.target.files.length) {
-      const reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload = (e) => {
-        this.movies[index].Poster = (e.target as any).result;
-      };
-    }
   }
 
 }

@@ -1,1 +1,11 @@
-<mat-toolbar>nesto</mat-toolbar>
+<mat-toolbar>
+    <mat-menu #appMenu="matMenu">
+        <button mat-menu-item (click)="goTo('/home')">Home</button>
+        <button mat-menu-item (click)="goTo('/movie')">Add new Movie</button>
+        <button mat-menu-item (click)="goTo('/movieList')">Edit Movies</button>
+    </mat-menu>
+
+    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+        <mat-icon>Navigate</mat-icon>
+    </button>
+</mat-toolbar>

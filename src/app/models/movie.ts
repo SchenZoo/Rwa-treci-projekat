@@ -10,6 +10,7 @@ export class Movie {
        public Production: String,
        public Website: String,
        public Poster: String,
-       public id: number
+       public id: number,
+       public YT: String
     ) {}
 }
