@@ -1,4 +1,23 @@
 img{
-    height:170px;
-    width:170px;/*maintain aspect ratio*/
+    width: 60%;
+    margin : auto;
+}
+
+.block
+{
+    display: block;
+}
+
+.card
+{
+    margin: auto;
+    width : 600px;
+}
+label
+{
+    background-color: blanchedalmond
+}
+.mat-raised-button
+{
+    background-color: antiquewhite
 }

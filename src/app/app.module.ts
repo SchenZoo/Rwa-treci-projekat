@@ -6,7 +6,6 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { MovieComponent } from './components/movie/movie.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { AppRoutingModuleModule } from './app-routing-module.module';
 import { rootReducer } from './store';
@@ -17,12 +16,13 @@ import { ConfigService } from './services/config.service';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffect } from './store/effects/login.effect';
 import { MoviesEffect } from './store/effects/movies.effect';
+import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatDividerModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    MovieComponent,
     MovieListComponent,
     HomeComponent,
     LoginComponent
@@ -39,7 +39,14 @@ import { MoviesEffect } from './store/effects/movies.effect';
     EffectsModule.forRoot([
       LoginEffect,
       MoviesEffect
-    ])
+    ]),
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthenticationService,

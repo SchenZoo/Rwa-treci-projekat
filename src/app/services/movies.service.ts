@@ -20,4 +20,10 @@ export class MoviesService {
   editMovie(movie): Observable<any> {
     return this.http.put<any>(`${this.config.getUrl()}/movies/${movie.id}`, movie);
   }
+  addMovie(movie): Observable<Movie> {
+    return this.http.post<Movie>(`${this.config.getUrl()}/movies`, movie);
+  }
+  deleteMovie(id): Observable<any> {
+    return this.http.delete<any>(`${this.config.getUrl()}/movies/${id}`);
+  }
 }

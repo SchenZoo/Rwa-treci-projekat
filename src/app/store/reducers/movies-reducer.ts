@@ -3,6 +3,7 @@ import { Movie } from '../../models/movie';
 import * as actType from '../action.types';
 import * as actions from '../actions';
 
+
 const initialState: Movie[] = [];
 
 const movieReducer = (state: Movie[] = initialState, action: actions.GlobalMovieActions) => {
@@ -28,6 +29,10 @@ const movieReducer = (state: Movie[] = initialState, action: actions.GlobalMovie
                     }
                     return x;
                 });
+            }
+        case actType.deleteGlobalFilmDone:
+            {
+                return [...state].filter(film => film.id !== (action as actions.DeleteGlobalFilmDone).id);
             }
         default:
             {

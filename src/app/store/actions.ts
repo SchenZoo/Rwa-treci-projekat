@@ -77,7 +77,17 @@ export class EditGlobalFilmDone implements Action {
     constructor(public movie: Movie) { }
 }
 
-export type GlobalMovieActions = FetchMoviesOk | SortMovies | AddGlobalFilmDone | EditGlobalFilmDone;
+export class DeleteGlobalFilm implements Action {
+    type = actionTypes.deleteGlobalFilm;
+    constructor(public id: number) { }
+}
+
+export class DeleteGlobalFilmDone implements Action {
+    type = actionTypes.deleteGlobalFilmDone;
+    constructor(public id: number) { }
+}
+
+export type GlobalMovieActions = FetchMoviesOk | SortMovies | AddGlobalFilmDone | EditGlobalFilmDone | DeleteGlobalFilmDone;
 
 export class OneMovieDelete implements Action {
     type = actionTypes.oneMovieDelete;

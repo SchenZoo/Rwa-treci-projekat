@@ -17,6 +17,10 @@ export const addGlobalFilmsDone = 'addGlobalFilmsDone';
 export const editGlobalFilm = 'editGlobalFilm';
 export const editGlobalFilmDone = 'editGlobalFilmDone';
 
+export const deleteGlobalFilm = 'deleteGlobalFilm';
+export const deleteGlobalFilmDone = 'deleteGlobalFilmDone';
+
+
 export const oneMovieAdded = 'oneMovieAdded';
 export const oneMovieAdd = 'oneMovieAdd';
 

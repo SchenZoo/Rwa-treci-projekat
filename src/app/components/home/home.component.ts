@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { Movie } from '../../models/movie';
-import { FetchMovies, EditGlobalFilmDone, EditGlobalFilm } from '../../store/actions';
+import { FetchMovies, EditGlobalFilmDone, EditGlobalFilm, DeleteGlobalFilm } from '../../store/actions';
 
 @Component({
   selector: 'app-home',
@@ -35,6 +35,9 @@ export class HomeComponent implements OnInit {
   }
   submitChange(movie) {
     this.store$.dispatch(new EditGlobalFilm(movie));
+  }
+  delete(id) {
+    this.store$.dispatch(new DeleteGlobalFilm(id));
   }
   onFileChanged(event, index) {
     if (event.target.files.length) {

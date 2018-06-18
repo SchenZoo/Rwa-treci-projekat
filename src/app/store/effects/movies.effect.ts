@@ -56,4 +56,41 @@ export class MoviesEffect {
                     );
             })
         );
+
+        @Effect()
+        movieAdd$ = this.actions$
+            .ofType(actType.addGlobalFilm)
+            .pipe(
+                switchMap((action: actions.AddGlobalFilm) => {
+                    return this.movieService.addMovie(action.movie)
+                        .pipe(map((movie) => {
+                            return new actions.AddGlobalFilmDone(action.movie);
+                        }
+                        ),
+                            catchError(() => {
+                                alert('Something went wrong');
+                                return [];
+                            })
+                        );
+                })
+            );
+
+            @Effect()
+            movieDelete$ = this.actions$
+                .ofType(actType.deleteGlobalFilm)
+                .pipe(
+                    switchMap((action: actions.DeleteGlobalFilm) => {
+                        return this.movieService.deleteMovie(action.id)
+                            .pipe(map((movie) => {
+                                console.log(movie);
+                                return new actions.DeleteGlobalFilmDone(action.id);
+                            }
+                            ),
+                                catchError(() => {
+                                    alert('Something went wrong');
+                                    return [];
+                                })
+                            );
+                    })
+                );
 }
