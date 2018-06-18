@@ -16,6 +16,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { ConfigService } from './services/config.service';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffect } from './store/effects/login.effect';
+import { MoviesEffect } from './store/effects/movies.effect';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoginEffect } from './store/effects/login.effect';
       maxAge: 25,
     }),
     EffectsModule.forRoot([
-      LoginEffect
+      LoginEffect,
+      MoviesEffect
     ])
   ],
   providers: [

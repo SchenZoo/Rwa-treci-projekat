@@ -1,3 +1,8 @@
-<p>
-  home works!
-</p>
+<div *ngFor="let movie of movies;let i = index">
+    <img [src]="movie.Poster"/>
+    <input type="file" (change)="onFileChanged($event,i)"/>
+    <div *ngFor="let i of props">
+            <input [(ngModel)]="movie[i]" type='text' />
+    </div>
+    <button (click)='submitChange(movie)'>Change information</button>
+</div>

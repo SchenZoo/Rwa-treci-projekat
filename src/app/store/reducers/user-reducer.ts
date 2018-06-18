@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
 const initialState: User = null;
 
-const userReducer = (state: User = initialState, action: actions.UserActions) => {
+const userReducer = (state: User = initialState, action: actions.UserActions | actions.OneMovieActions) => {
 
     switch (action.type) {
         case actType.loginSuccess:
@@ -19,6 +19,14 @@ const userReducer = (state: User = initialState, action: actions.UserActions) =>
         case actType.logout:
             {
                 return null;
+            }
+        case actType.oneMovieAdded:
+            {
+                return { ...state, movies: [...state.myMovies, (action as actions.OneMovieAdded).movie] };
+            }
+        case actType.oneMovieDeleted:
+            {
+                return { ...state, movies: [state.myMovies.filter(el => el.id !== (action as actions.OneMovieDeleted).id)] };
             }
         default:
             {

@@ -41,25 +41,52 @@ export type UserActions
 
 
 export class FetchMovies implements Action {
-    type = actionTypes.fetchFilms;
+    type = actionTypes.fetchMovies;
     constructor() { }
 }
 
 export class FetchMoviesOk implements Action {
-    type = actionTypes.fetchFilmsOK;
+    type = actionTypes.fetchMoviesOk;
     constructor(public movies: Movie[]) { }
 }
 
-export type GlobalMovieActions = FetchMoviesOk;
+export class SortMovies implements Action {
+    type = actionTypes.sortMovies;
+    constructor(public sortFunc) { }
+}
 
-export class OneMovie implements Action {
-    type = actionTypes.oneMovie;
+
+export class AddGlobalFilm implements Action {
+    type = actionTypes.addGlobalFilm;
+    constructor(public movie: Movie) { }
+}
+
+export class AddGlobalFilmDone implements Action {
+    type = actionTypes.addGlobalFilmsDone;
+    constructor(public movie: Movie) { }
+}
+
+
+export class EditGlobalFilm implements Action {
+    type = actionTypes.editGlobalFilm;
+    constructor(public movie: Movie) { }
+}
+
+export class EditGlobalFilmDone implements Action {
+    type = actionTypes.editGlobalFilmDone;
+    constructor(public movie: Movie) { }
+}
+
+export type GlobalMovieActions = FetchMoviesOk | SortMovies | AddGlobalFilmDone | EditGlobalFilmDone;
+
+export class OneMovieDelete implements Action {
+    type = actionTypes.oneMovieDelete;
     constructor(public id: number) { }
 }
 
-export class OneMovieFetched implements Action {
-    type = actionTypes.oneMovieFetched;
-    constructor(public movie: Movie) { }
+export class OneMovieDeleted implements Action {
+    type = actionTypes.oneMovieDeleted;
+    constructor(public id: number) { }
 }
 
 export class OneMovieAdd implements Action {
@@ -72,4 +99,4 @@ export class OneMovieAdded implements Action {
     constructor(public movie: Movie) { }
 }
 
-export type OneMovieActions = OneMovieAdded | OneMovieFetched;
+export type OneMovieActions = OneMovieAdded | OneMovieDeleted;

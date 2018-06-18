@@ -8,12 +8,15 @@ import * as actions from '../actions';
 import { Action } from '@ngrx/store';
 import { LoginAttempt, LoginSuccess } from '../actions';
 import { AuthenticationService } from '../../services/authentication.service';
+import { MoviesService } from '../../services/movies.service';
+import { Movie } from '../../models/movie';
 
 @Injectable()
 export class LoginEffect {
     constructor(
         private actions$: Actions,
-        private auth: AuthenticationService
+        private auth: AuthenticationService,
+        private movieService: MoviesService
     ) { }
 
     @Effect()

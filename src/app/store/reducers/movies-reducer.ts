@@ -5,12 +5,29 @@ import * as actions from '../actions';
 
 const initialState: Movie[] = [];
 
-const userReducer = (state: Movie[] = initialState, action: actions.GlobalMovieActions) => {
+const movieReducer = (state: Movie[] = initialState, action: actions.GlobalMovieActions) => {
 
     switch (action.type) {
-        case actType.fetchFilmsOK:
+        case actType.fetchMoviesOk:
             {
                 return (action as actions.FetchMoviesOk).movies;
+            }
+        case actType.sortMovies:
+            {
+                return [...state].sort((action as actions.SortMovies).sortFunc);
+            }
+        case actType.addGlobalFilmsDone:
+            {
+                return [...state, (action as actions.AddGlobalFilmDone).movie];
+            }
+        case actType.editGlobalFilmDone:
+            {
+                return [...state].map(x => {
+                    if (x.id === (action as actions.EditGlobalFilmDone).movie.id) {
+                        return (action as actions.EditGlobalFilmDone).movie;
+                    }
+                    return x;
+                });
             }
         default:
             {
@@ -19,4 +36,4 @@ const userReducer = (state: Movie[] = initialState, action: actions.GlobalMovieA
     }
 };
 
-export default userReducer;
+export default movieReducer;

@@ -8,13 +8,22 @@ export const registrationSuccess = 'registrationSuccess';
 
 export const logout = 'logout';
 
-export const fetchFilms = 'fetchFilms';
-export const fetchFilmsOK = 'fetchFilmsOK';
+export const fetchMovies = 'fetchMovies';
+export const fetchMoviesOk = 'fetchMoviesOk';
+
+export const addGlobalFilm = 'addGlobalFilm';
+export const addGlobalFilmsDone = 'addGlobalFilmsDone';
+
+export const editGlobalFilm = 'editGlobalFilm';
+export const editGlobalFilmDone = 'editGlobalFilmDone';
 
 export const oneMovieAdded = 'oneMovieAdded';
 export const oneMovieAdd = 'oneMovieAdd';
 
-export const oneMovie = 'oneMovie';
-export const oneMovieFetched = 'oneMovieFetched';
+export const oneMovieDeleted = 'oneMovieDeleted';
+export const oneMovieDelete = 'oneMovieDelete';
+
+export const sortMovies = 'sortMovies';
+
 
 
